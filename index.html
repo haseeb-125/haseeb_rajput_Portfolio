@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haseeb Ur Rehman | Full-Stack Software Developer</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Professional portfolio of Haseeb Ur Rehman, a Full-Stack Software Developer & MERN/Flask Specialist based in Karachi, Pakistan. Explore projects, skills, and contact information.">
+    <meta name="keywords"
+        content="Haseeb Ur Rehman, Full-Stack Developer, MERN Stack, React Developer, Flask, Python, Web Developer Karachi, Software Engineer Karachi, FentixTech, Aptech, Ilma University">
+    <meta name="author" content="Haseeb Ur Rehman">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Haseeb Ur Rehman | Full-Stack Software Developer">
+    <meta property="og:description"
+        content="Explore my software engineering portfolio, showcasing web applications, interactive dashboards, and design clones.">
+    <meta property="og:image" content="assets/avatar.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Haseeb Ur Rehman | Full-Stack Software Developer">
+    <meta property="twitter:description"
+        content="Explore my software engineering portfolio, showcasing web applications, interactive dashboards, and design clones.">
+    <meta property="twitter:image" content="assets/avatar.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f7ff',
+                            100: '#ebf0ff',
+                            200: '#cbd8ff',
+                            300: '#9bb4ff',
+                            400: '#6485ff',
+                            500: '#3b5cff',
+                            600: '#253fff',
+                            700: '#1d2ee6',
+                            800: '#1825bd',
+                            900: '#1e3a8a', // Deep navy
+                            950: '#0f172a',
+                        },
+                        darkBg: '#080c14',
+                        darkCard: '#111827',
+                        lightBg: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Core Styles -->
+    <style>
+        html {
+            overflow-y: scroll;
+            /* always show scrollbar — prevents layout shift */
+        }
+
+        /* Smooth transitions for theme switching */
+        .theme-transition {
+            transition: background-color 0.5s ease, border-color 0.5s ease, text-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: #080c14;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+
+        /* Typing cursor effect */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Initial state for Scroll Animations (Intersection Observer) */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism utility classes */
+        .glass-navbar {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark .glass-navbar {
+            background-color: rgba(8, 12, 20, 0.8);
+        }
+
+        .glass-card {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .dark .glass-card {
+            background-color: rgba(17, 24, 39, 0.65);
+            border: 1px solid rgba(31, 41, 55, 0.65);
+        }
+
+        /* Glow effects */
+        .glow-effect {
+            position: relative;
+        }
+
+        .glow-effect::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            box-shadow: 0 0 25px rgba(59, 92, 255, 0.4);
+            z-index: -1;
+        }
+
+        .glow-effect:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-lightBg text-slate-800 dark:bg-darkBg dark:text-slate-100 font-sans theme-transition min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+    <!-- Subtle Background Glows (Dark Mode Only) -->
+    <div
+        class="absolute top-0 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-[100px] pointer-events-none -z-10 hidden dark:block">
+    </div>
+    <div
+        class="absolute top-1/3 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none -z-10 hidden dark:block">
+    </div>
+    <div
+        class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none -z-10 hidden dark:block">
+    </div>
+
+    <!-- STICKY NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-navbar border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 shadow-sm"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2 group">
+                    <span
+                        class="font-heading font-extrabold text-2xl tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-900 via-brand-600 to-indigo-600 dark:from-brand-100 dark:via-brand-400 dark:to-indigo-400 group-hover:scale-105 transition-transform duration-300">
+                        Haseeb Ur Rehman
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="flex items-baseline space-x-6">
+                        <a href="#home"
+                            class="nav-link font-medium text-sm hover:text-brand-600 dark:hover:text-brand-400 text-brand-900 dark:text-slate-100 transition-colors py-2 px-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 dark:after:bg-brand-400 hover:after:w-full after:transition-all after:duration-300">Home</a>
+                        <a href="#about"
+                            class="nav-link font-medium text-sm hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 transition-colors py-2 px-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 dark:after:bg-brand-400 hover:after:w-full after:transition-all after:duration-300">About</a>
+                        <a href="#skills"
+                            class="nav-link font-medium text-sm hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 transition-colors py-2 px-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 dark:after:bg-brand-400 hover:after:w-full after:transition-all after:duration-300">Skills</a>
+                        <a href="#projects"
+                            class="nav-link font-medium text-sm hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 transition-colors py-2 px-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 dark:after:bg-brand-400 hover:after:w-full after:transition-all after:duration-300">Projects</a>
+                        <a href="#education"
+                            class="nav-link font-medium text-sm hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 transition-colors py-2 px-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 dark:after:bg-brand-400 hover:after:w-full after:transition-all after:duration-300">Education</a>
+                        <a href="#contact"
+                            class="nav-link font-medium text-sm hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 transition-colors py-2 px-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 dark:after:bg-brand-400 hover:after:w-full after:transition-all after:duration-300">Contact</a>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="h-6 w-px bg-slate-200 dark:bg-slate-800"></div>
+
+                    <!-- Theme Toggle & Social Icons -->
+                    <div class="flex items-center gap-4">
+                        <button id="themeToggle" aria-label="Toggle Theme"
+                            class="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all hover:scale-110 active:scale-95 shadow-sm">
+                            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                        </button>
+                        <!-- GitHub -->
+                        <a href="https://github.com/haseeb-125" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub Profile" class="group relative p-2.5 rounded-xl
+          bg-slate-100 dark:bg-slate-800
+          text-slate-600 dark:text-slate-300
+          hover:bg-[#24292e] dark:hover:bg-[#24292e]
+          hover:text-white dark:hover:text-white
+          hover:shadow-xl hover:shadow-[#24292e]/40
+          hover:scale-110 active:scale-95
+          transition-all duration-300 overflow-visible">
+
+                            <!-- Glow ring on hover -->
+                            <span class="absolute inset-0 rounded-xl ring-0 ring-[#24292e]/0
+               group-hover:ring-2 group-hover:ring-[#24292e]/30
+               transition-all duration-300 pointer-events-none"></span>
+
+                            <!-- GitHub SVG icon (official shape) -->
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                            </svg>
+
+                            <!-- Tooltip -->
+                            <span class="absolute -bottom-10 left-1/2 -translate-x-1/2
+               bg-[#24292e] text-white text-xs font-semibold
+               px-3 py-1.5 rounded-lg whitespace-nowrap
+               opacity-0 group-hover:opacity-100
+               translate-y-2 group-hover:translate-y-0
+               transition-all duration-200 pointer-events-none
+               shadow-xl z-50">
+                                GitHub
+                                <span class="absolute -top-1 left-1/2 -translate-x-1/2
+                 w-2 h-2 bg-[#24292e] rotate-45"></span>
+                            </span>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/haseeb-ur-rehman-08369922a/" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn Profile" class="group relative p-2.5 rounded-xl
+          bg-slate-100 dark:bg-slate-800
+          text-slate-600 dark:text-slate-300
+          hover:bg-[#0A66C2] dark:hover:bg-[#0A66C2]
+          hover:text-white dark:hover:text-white
+          hover:shadow-xl hover:shadow-[#0A66C2]/40
+          hover:scale-110 active:scale-95
+          transition-all duration-300 overflow-visible">
+
+                            <!-- Glow ring on hover -->
+                            <span class="absolute inset-0 rounded-xl ring-0 ring-[#0A66C2]/0
+               group-hover:ring-2 group-hover:ring-[#0A66C2]/30
+               transition-all duration-300 pointer-events-none"></span>
+
+                            <!-- LinkedIn SVG icon (official shape) -->
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+
+                            <!-- Tooltip -->
+                            <span class="absolute -bottom-10 left-1/2 -translate-x-1/2
+               bg-[#0A66C2] text-white text-xs font-semibold
+               px-3 py-1.5 rounded-lg whitespace-nowrap
+               opacity-0 group-hover:opacity-100
+               translate-y-2 group-hover:translate-y-0
+               transition-all duration-200 pointer-events-none
+               shadow-xl z-50">
+                                LinkedIn
+                                <span class="absolute -top-1 left-1/2 -translate-x-1/2
+                 w-2 h-2 bg-[#0A66C2] rotate-45"></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hamburger Button (Mobile Only) -->
+                <div class="md:hidden flex items-center gap-3">
+                    <button id="themeToggleMobile" aria-label="Toggle Theme"
+                        class="p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all">
+                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    </button>
+                    <button id="mobileMenuBtn" aria-label="Open Mobile Menu"
+                        class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-600 dark:text-slate-300 transition-all focus:outline-none">
+                        <i data-lucide="menu" id="hamburgerIcon" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="closeIcon" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileMenu"
+            class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-darkBg transition-all duration-300 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-3">
+                <a href="#home"
+                    class="mobile-nav-link block px-3 py-2.5 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Home</a>
+                <a href="#about"
+                    class="mobile-nav-link block px-3 py-2.5 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">About</a>
+                <a href="#skills"
+                    class="mobile-nav-link block px-3 py-2.5 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Skills</a>
+                <a href="#projects"
+                    class="mobile-nav-link block px-3 py-2.5 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Projects</a>
+                <a href="#education"
+                    class="mobile-nav-link block px-3 py-2.5 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Education</a>
+                <a href="#contact"
+                    class="mobile-nav-link block px-3 py-2.5 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Contact</a>
+
+                <div class="h-px bg-slate-200 dark:bg-slate-800 my-4"></div>
+                <div class="flex items-center gap-6 px-3">
+                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                        Find me on
+                    </span>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/haseeb-125" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub" class="group flex items-center gap-2 px-3 py-2 rounded-xl
+            bg-slate-100 dark:bg-slate-800
+            text-slate-600 dark:text-slate-300
+            hover:bg-[#24292e] hover:text-white
+            dark:hover:bg-[#24292e] dark:hover:text-white
+            hover:shadow-lg hover:shadow-[#24292e]/25
+            hover:scale-105 active:scale-95
+            transition-all duration-300">
+
+                        <!-- Official GitHub SVG -->
+                        <svg class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:rotate-12"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                        </svg>
+
+                        <span class="text-sm font-semibold">GitHub</span>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/haseeb-ur-rehman-08369922a/" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn" class="group flex items-center gap-2 px-3 py-2 rounded-xl
+            bg-slate-100 dark:bg-slate-800
+            text-slate-600 dark:text-slate-300
+            hover:bg-[#0A66C2] hover:text-white
+            dark:hover:bg-[#0A66C2] dark:hover:text-white
+            hover:shadow-lg hover:shadow-[#0A66C2]/25
+            hover:scale-105 active:scale-95
+            transition-all duration-300">
+
+                        <!-- Official LinkedIn SVG -->
+                        <svg class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:rotate-12"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+
+                        <span class="text-sm font-semibold">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home" class="min-h-screen flex items-center pt-24 sm:pt-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Left: Content -->
+                <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left order-2 lg:order-1">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-100/80 dark:bg-brand-900/40 text-brand-900 dark:text-brand-300 border border-brand-200 dark:border-brand-800/80 text-sm font-medium self-center lg:self-start mb-6 animate-pulse-slow">
+                        <span class="flex h-2.5 w-2.5 relative">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
+                        Available for Full-time Roles & Internships
+                    </div>
+
+                    <h1
+                        class="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                        Hello, I'm <br class="sm:hidden">
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-900 via-brand-600 to-indigo-600 dark:from-brand-100 dark:via-brand-400 dark:to-indigo-300">
+                            Haseeb Ur Rehman
+                        </span>
+                    </h1>
+
+                    <h2
+                        class="mt-4 font-heading text-lg sm:text-xl md:text-2xl font-semibold text-slate-700 dark:text-slate-300 min-h-[40px] flex items-center justify-center lg:justify-start">
+                        <span id="typing-sub"
+                            class="typing-cursor text-slate-600 dark:text-slate-400 font-medium"></span>
+                    </h2>
+
+                    <p
+                        class="mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        A results-driven Full-Stack Developer specializing in building modern web applications,
+                        designing RESTful APIs, and solving data challenges. Skilled in Javascript (MERN Stack) and
+                        Python (Flask, Pandas) with a passion for writing clean, optimized code.
+                    </p>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                        <a href="#projects"
+                            class="w-full sm:w-auto px-8 py-3.5 bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 text-white font-medium rounded-lg text-center shadow-lg shadow-brand-500/20 hover:shadow-xl hover:shadow-brand-500/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 duration-200">
+                            Explore Projects
+                        </a>
+                        <a href="#contact"
+                            class="w-full sm:w-auto px-8 py-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 font-medium rounded-lg text-center hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all transform hover:-translate-y-0.5 active:translate-y-0 duration-200">
+                            Contact Me
+                        </a>
+                        <a href="assets/Resume.pdf" download
+                            class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-brand-500 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 font-medium rounded-lg text-center transition-all">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Resume PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Avatar/Graphic -->
+                <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 group">
+                        <!-- Orbiting particles/shapes background -->
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-tr from-brand-500 to-indigo-500 rounded-full opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500 animate-pulse">
+                        </div>
+                        <!-- Inner glowing border -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-600 via-indigo-500 to-purple-500 rounded-2xl p-1 shadow-2xl animate-float">
+                            <div
+                                class="w-full h-full bg-white dark:bg-darkBg rounded-[14px] overflow-hidden flex items-center justify-center relative">
+                                <!-- Dark theme image -->
+                                <img src="assets/avatar-dark.png" alt="Haseeb Ur Rehman" id="avatarImg"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Haseeb&backgroundColor=0f172a';">
+                                <!-- Subtle overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-950/20 to-transparent pointer-events-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div
+            class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-50 hover:opacity-100 transition-opacity duration-300 hidden md:flex">
+            <span class="text-xs font-medium uppercase tracking-widest text-slate-500">Scroll Down</span>
+            <a href="#about" class="p-1 rounded-full border border-slate-300 dark:border-slate-700 animate-bounce">
+                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-600 dark:text-slate-400"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-24 sm:py-32 relative scroll-reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight">About Me</h2>
+                <div class="h-1.5 w-16 bg-brand-600 dark:bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 text-lg">A short introduction to who I am, my drive,
+                    and my aspirations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <!-- Column Left: Detailed Bio -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100">
+                        Hello, I'm Haseeb, a Software Engineering student and Full-Stack Developer.
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        I am currently pursuing a <strong>Bachelor of Science in Software Engineering</strong> at
+                        <strong>Ilma University</strong>. My passion lies in constructing end-to-end, high-performance
+                        web systems. Having finished an advanced diploma in Software Engineering (ADSE 2.0) from APTECH,
+                        I have consolidated my expertise in full-stack architecture, algorithms, and modular coding.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        I specialize in MERN stack development (MongoDB, Express, React, Node.js) and enjoy using Python
+                        frameworks like Flask for creating lightweight services and analyzing datasets. I love employing
+                        AI tools and automation scripts to supercharge my development workflow, ensuring production code
+                        is optimized and delivered efficiently.
+                    </p>
+
+                    <!-- Quick Info Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="flex gap-3">
+                            <div
+                                class="p-2.5 rounded-lg bg-brand-50 dark:bg-slate-900 text-brand-900 dark:text-brand-400 border border-slate-200 dark:border-slate-800">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Location</h4>
+                                <p class="text-sm font-medium text-slate-800 dark:text-slate-200">Korangi Creek,
+                                    Karachi, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div
+                                class="p-2.5 rounded-lg bg-brand-50 dark:bg-slate-900 text-brand-900 dark:text-brand-400 border border-slate-200 dark:border-slate-800">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Email</h4>
+                                <a href="mailto:haseeburr77@gmail.com"
+                                    class="text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline">haseeburr77@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div
+                                class="p-2.5 rounded-lg bg-brand-50 dark:bg-slate-900 text-brand-900 dark:text-brand-400 border border-slate-200 dark:border-slate-800">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Education
+                                    Status</h4>
+                                <p class="text-sm font-medium text-slate-800 dark:text-slate-200">BS Software
+                                    Engineering (2023 - Present)</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div
+                                class="p-2.5 rounded-lg bg-brand-50 dark:bg-slate-900 text-brand-900 dark:text-brand-400 border border-slate-200 dark:border-slate-800">
+                                <i data-lucide="laptop" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Specialties
+                                </h4>
+                                <p class="text-sm font-medium text-slate-800 dark:text-slate-200">MERN Stack, Python,
+                                    REST APIs, Git</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column Right: Visual stats/Highlights -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div
+                        class="p-6 rounded-2xl glass-card text-center hover:scale-105 transition-transform duration-300">
+                        <span
+                            class="font-heading text-4xl sm:text-5xl font-extrabold text-brand-900 dark:text-brand-400">3+</span>
+                        <p class="text-sm font-semibold uppercase tracking-wider text-slate-500 mt-2">Years of Learning
+                        </p>
+                        <p class="text-xs text-slate-400 mt-1">Structured SE Diplomas & BS Curriculum</p>
+                    </div>
+                    <div
+                        class="p-6 rounded-2xl glass-card text-center hover:scale-105 transition-transform duration-300">
+                        <span
+                            class="font-heading text-4xl sm:text-5xl font-extrabold text-brand-900 dark:text-brand-400">10+</span>
+                        <p class="text-sm font-semibold uppercase tracking-wider text-slate-500 mt-2">Completed Projects
+                        </p>
+                        <p class="text-xs text-slate-400 mt-1">SaaS clones, dashboards, e-commerce stores</p>
+                    </div>
+                    <div
+                        class="p-6 rounded-2xl glass-card text-center hover:scale-105 transition-transform duration-300">
+                        <span
+                            class="font-heading text-4xl sm:text-5xl font-extrabold text-brand-900 dark:text-brand-400">1+</span>
+                        <p class="text-sm font-semibold uppercase tracking-wider text-slate-500 mt-2">Internship Role
+                        </p>
+                        <p class="text-xs text-slate-400 mt-1">FentixTech Web Developer Intern</p>
+                    </div>
+                    <div
+                        class="p-6 rounded-2xl glass-card text-center hover:scale-105 transition-transform duration-300">
+                        <div class="flex justify-center text-brand-900 dark:text-brand-400 mb-2">
+                            <i data-lucide="award" class="w-8 h-8"></i>
+                        </div>
+                        <span class="font-heading text-lg font-bold text-slate-800 dark:text-slate-200">Hifz e
+                            Quran</span>
+                        <p class="text-xs text-slate-400 mt-1">Disciplined mind, high-level concentration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills"
+        class="py-24 sm:py-32 bg-slate-100/50 dark:bg-slate-900/30 border-y border-slate-200/50 dark:border-slate-800/50 scroll-reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight">Skills & Tech Stack</h2>
+                <div class="h-1.5 w-16 bg-brand-600 dark:bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 text-lg">My primary toolkits, programming languages,
+                    frameworks, and databases.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Frontend Column -->
+                <div class="p-8 rounded-2xl glass-card space-y-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="p-2.5 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-900 dark:text-brand-400">
+                            <i data-lucide="layout" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-slate-100">Frontend
+                            Development</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- React.js -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">React.js</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">85%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="85%"></div>
+                            </div>
+                        </div>
+                        <!-- HTML5/CSS3/JavaScript -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">HTML5 / CSS3 / JavaScript (ES6)</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">90%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="90%"></div>
+                            </div>
+                        </div>
+                        <!-- Tailwind CSS -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">Tailwind CSS</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">90%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Column -->
+                <div class="p-8 rounded-2xl glass-card space-y-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="p-2.5 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-900 dark:text-brand-400">
+                            <i data-lucide="server" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-slate-100">Backend
+                            Development</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Node.js & Express -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">Node.js & Express.js</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">80%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="80%"></div>
+                            </div>
+                        </div>
+                        <!-- Python & Flask -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">Python & Flask</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">75%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="75%"></div>
+                            </div>
+                        </div>
+                        <!-- REST APIs -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">REST APIs Design</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">85%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Column -->
+                <div class="p-8 rounded-2xl glass-card space-y-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="p-2.5 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-900 dark:text-brand-400">
+                            <i data-lucide="database" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-slate-100">Databases</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- MongoDB -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">MongoDB</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">80%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="80%"></div>
+                            </div>
+                        </div>
+                        <!-- SQL -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">SQL & Relational Databases</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">70%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Libraries Column -->
+                <div class="p-8 rounded-2xl glass-card space-y-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="p-2.5 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-900 dark:text-brand-400">
+                            <i data-lucide="sliders" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-slate-100">Tools, Libraries &
+                            Others</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Git & GitHub -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">Git & GitHub Version Control</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">85%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="85%"></div>
+                            </div>
+                        </div>
+                        <!-- Python Libraries -->
+                        <div class="skill-bar-container">
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span class="text-slate-700 dark:text-slate-300">Pandas, NumPy, Matplotlib</span>
+                                <span class="text-brand-900 dark:text-brand-400 font-semibold">75%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-600 dark:bg-brand-500 rounded-full"
+                                    style="width: 0%;" data-target="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-24 sm:py-32 scroll-reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight">My Projects</h2>
+                <div class="h-1.5 w-16 bg-brand-600 dark:bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 text-lg">A curated showcase of applications,
+                    interfaces, and scripts built by me.</p>
+            </div>
+
+            <!-- Subsection 1: Featured Internship Tasks -->
+            <div class="mb-20">
+                <h3 class="font-heading text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/50 flex items-center justify-center text-brand-900 dark:text-brand-400 text-sm">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    </span>
+                    Featured Internship Projects (FentixTech)
+                </h3>
+
+                <!-- Project Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: Furniture E-commerce -->
+                    <div
+                        class="rounded-2xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-darkCard overflow-hidden shadow-sm flex flex-col group hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                        <div
+                            class="relative overflow-hidden aspect-video bg-gradient-to-tr from-brand-900 to-indigo-950 flex items-center justify-center p-4">
+                            <i data-lucide="shopping-bag"
+                                class="w-16 h-16 text-brand-300 opacity-20 absolute scale-150 group-hover:scale-175 transition-transform duration-500"></i>
+                            <!-- Visual Graphic -->
+                            <div
+                                class="w-11/12 h-5/6 rounded-lg bg-slate-900/40 border border-white/10 backdrop-blur-md p-3 relative flex flex-col justify-between shadow-inner">
+                                <div class="flex items-center gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                                    <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                    <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                                </div>
+                                <div class="text-[10px] font-mono text-slate-400 truncate">
+                                    https://furniture-selling-website.vercel.app</div>
+                                <div
+                                    class="flex-grow flex items-center justify-center text-white font-bold text-xs uppercase tracking-wider">
+                                    Premium Furniture Store</div>
+                                <div class="flex justify-between items-center text-[10px] text-slate-400">
+                                    <span>Filter: Chairs, Tables</span>
+                                    <span class="text-brand-400">$299</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex gap-2 flex-wrap mb-3">
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">CSS3</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">JavaScript</span>
+                                </div>
+                                <h4
+                                    class="font-heading text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                    Furniture E-commerce Store</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-3">A fully
+                                    functional furniture store with dynamic product rendering, localStorage cart
+                                    persistence, real-time search, color swatches, and multi-page architecture.
+                                </p>
+                            </div>
+                            <div class="flex gap-4 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                                <a href="https://furniture-selling-website.vercel.app/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex-grow inline-flex justify-center items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 rounded transition-colors shadow">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/haseeb-125/furniture-selling-website" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex justify-center items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-all border border-slate-200 dark:border-slate-800">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Student Registration -->
+                    <div
+                        class="rounded-2xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-darkCard overflow-hidden shadow-sm flex flex-col group hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                        <div
+                            class="relative overflow-hidden aspect-video bg-gradient-to-tr from-brand-900 to-indigo-950 flex items-center justify-center p-4">
+                            <i data-lucide="users"
+                                class="w-16 h-16 text-brand-300 opacity-20 absolute scale-150 group-hover:scale-175 transition-transform duration-500"></i>
+                            <!-- Visual Graphic -->
+                            <div
+                                class="w-11/12 h-5/6 rounded-lg bg-slate-900/40 border border-white/10 backdrop-blur-md p-3 relative flex flex-col justify-between shadow-inner">
+                                <div class="flex items-center justify-between text-[9px] font-mono text-slate-400">
+                                    <span>Database Simulator</span>
+                                    <span>v1.2.0</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5 my-2">
+                                    <div
+                                        class="h-3 w-full bg-slate-700/60 rounded flex items-center px-1.5 justify-between">
+                                        <div class="w-10 h-1 bg-brand-400 rounded"></div>
+                                        <div class="w-3 h-1.5 bg-green-500 rounded"></div>
+                                    </div>
+                                    <div
+                                        class="h-3 w-full bg-slate-700/60 rounded flex items-center px-1.5 justify-between">
+                                        <div class="w-12 h-1 bg-brand-400 rounded"></div>
+                                        <div class="w-3 h-1.5 bg-green-500 rounded"></div>
+                                    </div>
+                                    <div
+                                        class="h-3 w-full bg-slate-700/60 rounded flex items-center px-1.5 justify-between">
+                                        <div class="w-8 h-1 bg-brand-400 rounded"></div>
+                                        <div class="w-3 h-1.5 bg-green-500 rounded"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center text-[9px] text-slate-400">
+                                    <span>Total: 42 Students</span>
+                                    <span class="text-green-400 font-semibold">+ Add Record</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex gap-2 flex-wrap mb-3">
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">CSS3</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">LocalStorage</span>
+                                </div>
+                                <h4
+                                    class="font-heading text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                    Student Registration System</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-3">A
+                                    JavaScript-powered CRUD application featuring real-time form validation,
+                                    localStorage persistence, live search, and paginated student record management.</p>
+                            </div>
+                            <div class="flex gap-4 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                                <a href="https://js-dom-form-validation.vercel.app/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex-grow inline-flex justify-center items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 rounded transition-colors shadow">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/haseeb-125/js-dom-form-validation" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex justify-center items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-all border border-slate-200 dark:border-slate-800">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: WhiteSpace Clone -->
+                    <div
+                        class="rounded-2xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-darkCard overflow-hidden shadow-sm flex flex-col group hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                        <div
+                            class="relative overflow-hidden aspect-video bg-gradient-to-tr from-brand-900 to-indigo-950 flex items-center justify-center p-4">
+                            <i data-lucide="file-text"
+                                class="w-16 h-16 text-brand-300 opacity-20 absolute scale-150 group-hover:scale-175 transition-transform duration-500"></i>
+                            <!-- Visual Graphic -->
+                            <div
+                                class="w-11/12 h-5/6 rounded-lg bg-slate-900/40 border border-white/10 backdrop-blur-md p-3 relative flex flex-col justify-between shadow-inner">
+                                <div class="flex justify-between items-center text-[10px] text-slate-300 font-bold">
+                                    <span>WhiteSpace</span>
+                                    <span class="w-3.5 h-3.5 rounded bg-brand-600"></span>
+                                </div>
+                                <div class="text-[9px] text-slate-400 mt-2 font-light">
+                                    Get more done with our project management tools, note organizing utility, and
+                                    seamless desktop synchronization.
+                                </div>
+                                <div class="flex justify-center gap-2 mt-2">
+                                    <div class="w-12 h-3 bg-brand-600 rounded"></div>
+                                    <div class="w-12 h-3 bg-slate-700 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex gap-2 flex-wrap mb-3">
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">CSS3</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Responsive</span>
+                                </div>
+                                <h4
+                                    class="font-heading text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                    WhiteSpace UI Clone</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-3">A pixel-perfect
+                                    Bootstrap 5 clone of a modern SaaS landing page with fully responsive layout,
+                                    component-based structure, and minimal custom CSS.
+                                </p>
+                            </div>
+                            <div class="flex gap-4 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                                <a href="https://whitespaceclone.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                    class="flex-grow inline-flex justify-center items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 rounded transition-colors shadow">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/haseeb-125/whitespaceclone" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex justify-center items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-all border border-slate-200 dark:border-slate-800">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Catalog-Z -->
+                    <div
+                        class="rounded-2xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-darkCard overflow-hidden shadow-sm flex flex-col group hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                        <div
+                            class="relative overflow-hidden aspect-video bg-gradient-to-tr from-brand-900 to-indigo-950 flex items-center justify-center p-4">
+                            <i data-lucide="image"
+                                class="w-16 h-16 text-brand-300 opacity-20 absolute scale-150 group-hover:scale-175 transition-transform duration-500"></i>
+                            <!-- Visual Graphic -->
+                            <div
+                                class="w-11/12 h-5/6 rounded-lg bg-slate-900/40 border border-white/10 backdrop-blur-md p-3 relative flex flex-col justify-between shadow-inner">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="text-xs font-bold text-white tracking-widest uppercase">Catalog-Z</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-1.5 my-2 flex-grow">
+                                    <div class="bg-slate-800/80 rounded border border-white/5"></div>
+                                    <div class="bg-slate-800/80 rounded border border-white/5"></div>
+                                    <div class="bg-slate-800/80 rounded border border-white/5"></div>
+                                    <div class="bg-slate-800/80 rounded border border-white/5"></div>
+                                    <div class="bg-slate-800/80 rounded border border-white/5"></div>
+                                    <div class="bg-slate-800/80 rounded border border-white/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex gap-2 flex-wrap mb-3">
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Tailwind
+                                        CSS</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Grid
+                                        Layout</span>
+                                </div>
+                                <h4
+                                    class="font-heading text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                    Catalog-Z Photo Gallery</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-3">A responsive
+                                    product catalog with real-time search, category filtering, and dynamic product
+                                    rendering — built using HTML, CSS, and vanilla JavaScript.
+                                </p>
+                            </div>
+                            <div class="flex gap-4 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                                <a href="https://catalog-z-layout001.vercel.app/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex-grow inline-flex justify-center items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 rounded transition-colors shadow">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/haseeb-125/catalog-z-layout001" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex justify-center items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-all border border-slate-200 dark:border-slate-800">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Catchub -->
+                    <div
+                        class="rounded-2xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-darkCard overflow-hidden shadow-sm flex flex-col group hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                        <div
+                            class="relative overflow-hidden aspect-video bg-gradient-to-tr from-brand-900 to-indigo-950 flex items-center justify-center p-4">
+                            <i data-lucide="mouse-pointer"
+                                class="w-16 h-16 text-brand-300 opacity-20 absolute scale-150 group-hover:scale-175 transition-transform duration-500"></i>
+                            <!-- Visual Graphic -->
+                            <div
+                                class="w-11/12 h-5/6 rounded-lg bg-slate-900/40 border border-white/10 backdrop-blur-md p-3 relative flex flex-col justify-between shadow-inner">
+                                <div class="flex items-center justify-between text-[10px] text-slate-300 font-bold">
+                                    <span>StartUp.</span>
+                                </div>
+                                <div class="flex flex-col gap-2 my-2">
+                                    <div class="h-1 w-3/4 bg-slate-400/80 rounded"></div>
+                                    <div class="h-1 w-1/2 bg-slate-400/80 rounded"></div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex -space-x-1.5">
+                                        <div class="w-4 h-4 rounded-full bg-slate-600 border border-slate-900"></div>
+                                        <div class="w-4 h-4 rounded-full bg-brand-600 border border-slate-900"></div>
+                                    </div>
+                                    <div class="px-2 py-0.5 rounded bg-brand-600 text-[8px] text-white">Interactive
+                                        Slider</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex gap-2 flex-wrap mb-3">
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Tailwind
+                                        CSS</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">JS
+                                        Animations</span>
+                                </div>
+                                <h4
+                                    class="font-heading text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                    Startup - Bootstrap 5 Landing Page Clone</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-3">A modern SaaS
+                                    product landing page clone featuring user-centric content layout, responsive
+                                    layouts, floating card micro-animations, and styled forms.</p>
+                            </div>
+                            <div class="flex gap-4 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                                <a href="https://startupclonesite.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                    class="flex-grow inline-flex justify-center items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 rounded transition-colors shadow">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/haseeb-125/startup_clone_site" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex justify-center items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-all border border-slate-200 dark:border-slate-800">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Winter Portfolio -->
+                    <div
+                        class="rounded-2xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-darkCard overflow-hidden shadow-sm flex flex-col group hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                        <div
+                            class="relative overflow-hidden aspect-video bg-gradient-to-tr from-brand-900 to-indigo-950 flex items-center justify-center p-4">
+                            <i data-lucide="cloud-snow"
+                                class="w-16 h-16 text-brand-300 opacity-20 absolute scale-150 group-hover:scale-175 transition-transform duration-500"></i>
+                            <!-- Visual Graphic -->
+                            <div
+                                class="w-11/12 h-5/6 rounded-lg bg-slate-900/40 border border-white/10 backdrop-blur-md p-3 relative flex flex-col justify-between shadow-inner">
+                                <div class="flex items-center gap-1">
+                                    <span
+                                        class="text-[9px] text-slate-300 font-semibold uppercase tracking-wider">Winter
+                                        Creative</span>
+                                </div>
+                                <div class="flex-grow flex items-center justify-center">
+                                    <div
+                                        class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center">
+                                        <i data-lucide="snowflake" class="w-3.5 h-3.5 text-blue-200"></i>
+                                    </div>
+                                </div>
+                                <div class="text-[8px] text-slate-400 font-mono text-center">Interactive Scroll Effects
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex gap-2 flex-wrap mb-3">
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">CSS3</span>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">JavaScript</span>
+                                </div>
+                                <h4
+                                    class="font-heading text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                    Winter Portfolio Theme</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-3">A responsive
+                                    photography portfolio featuring dynamic category filtering, smooth scroll
+                                    animations, and an interactive lightbox — built with HTML, CSS, and JavaScript.</p>
+                            </div>
+                            <div class="flex gap-4 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                                <a href="https://wintergallary.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                    class="flex-grow inline-flex justify-center items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 rounded transition-colors shadow">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/haseeb-125/winter_gallary" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex justify-center items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-all border border-slate-200 dark:border-slate-800">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subsection 2: Additional Personal Work (GitHub-only) -->
+            <div>
+                <h3 class="font-heading text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/50 flex items-center justify-center text-brand-900 dark:text-brand-400 text-sm">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                    </span>
+                    Additional Software Engineering Projects (GitHub-only)
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1: Fitness Tracker (MERN) -->
+                    <div
+                        class="p-6 rounded-2xl glass-card flex flex-col justify-between hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all group">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-purple-100 dark:bg-purple-950/50 text-purple-900 dark:text-purple-400">Full-Stack
+                                    Application</span>
+                                <i data-lucide="heart" class="w-5 h-5 text-rose-500 animate-pulse"></i>
+                            </div>
+                            <h4
+                                class="font-heading text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                Fitness Tracker (MERN Stack)</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+                                A comprehensive workout logging and goals tracking system. Allows users to record daily
+                                exercise routines, count calorie burnages, monitor heart rates, and visualize fitness
+                                trends over time using interactive charting tools.
+                            </p>
+
+                            <div class="flex gap-2 flex-wrap mt-4">
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">MongoDB</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Express.js</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">React.js</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Node.js</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">ChartJS</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+                            <span class="text-xs text-slate-400 flex items-center gap-1.5"><i data-lucide="shield"
+                                    class="w-3.5 h-3.5"></i> JWT Authentication</span>
+                            <a href="https://github.com/haseeb-125/Fitness-Tracker" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 dark:hover:bg-slate-600 rounded transition-colors shadow">
+                                <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Climate Change Awareness -->
+                    <div
+                        class="p-6 rounded-2xl glass-card flex flex-col justify-between hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all group">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-900 dark:text-emerald-400">Data
+                                    Analytics & Web</span>
+                                <i data-lucide="globe" class="w-5 h-5 text-emerald-500"></i>
+                            </div>
+                            <h4
+                                class="font-heading text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                                Climate Change Awareness App</h4>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+                                A Python Flask-based dashboard analyzing local and global temperature variations.
+                                Visualizes massive datasets using Python Pandas, NumPy, and Matplotlib. Includes blogs
+                                and climate awareness education resources.
+                            </p>
+
+                            <div class="flex gap-2 flex-wrap mt-4">
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Python</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Flask</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Pandas</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Matplotlib</span>
+                                <span
+                                    class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Bootstrap</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+                            <span class="text-xs text-slate-400 flex items-center gap-1.5"><i data-lucide="line-chart"
+                                    class="w-3.5 h-3.5"></i> Custom Data Plots</span>
+                            <a href="https://github.com/haseeb-125/Flask-App" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 dark:hover:bg-slate-600 rounded transition-colors shadow">
+                                <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education"
+        class="py-24 sm:py-32 bg-slate-100/50 dark:bg-slate-900/30 border-y border-slate-200/50 dark:border-slate-800/50 scroll-reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight">Education History</h2>
+                <div class="h-1.5 w-16 bg-brand-600 dark:bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 text-lg">My educational milestones, academic degrees,
+                    and formal learning credentials.</p>
+            </div>
+
+            <!-- Timeline Container -->
+            <div
+                class="max-w-3xl mx-auto relative border-l border-slate-200 dark:border-slate-800 pl-6 sm:pl-8 space-y-12">
+                <!-- Timeline Item 1: Ilma University -->
+                <div class="relative group">
+                    <!-- Circular Icon on Timeline Line -->
+                    <div
+                        class="absolute -left-[35px] sm:-left-[43px] top-1.5 w-7 h-7 sm:w-8 sm:h-8 bg-brand-900 dark:bg-brand-600 border-4 border-lightBg dark:border-darkBg rounded-full flex items-center justify-center text-white shadow group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="graduation-cap" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                    </div>
+                    <!-- Card Content -->
+                    <div
+                        class="p-6 rounded-2xl glass-card relative overflow-hidden group-hover:shadow-md transition-all">
+                        <span
+                            class="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400">Bachelor's
+                            Degree</span>
+                        <h3 class="font-heading text-xl font-bold mt-1 text-slate-900 dark:text-slate-100">BS Software
+                            Engineering</h3>
+                        <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">Ilma University</p>
+                        <div
+                            class="inline-flex items-center gap-1.5 mt-2 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/50">
+                            2023 - Present
+                        </div>
+                        <p class="mt-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Acquiring advanced instruction in algorithms, software requirement engineering,
+                            object-oriented design, web application development, database management systems, and
+                            systems engineering.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: Aptech -->
+                <div class="relative group">
+                    <div
+                        class="absolute -left-[35px] sm:-left-[43px] top-1.5 w-7 h-7 sm:w-8 sm:h-8 bg-indigo-900 dark:bg-indigo-600 border-4 border-lightBg dark:border-darkBg rounded-full flex items-center justify-center text-white shadow group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="book-open" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                    </div>
+                    <div
+                        class="p-6 rounded-2xl glass-card relative overflow-hidden group-hover:shadow-md transition-all">
+                        <span
+                            class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Advanced
+                            Diploma</span>
+                        <h3 class="font-heading text-xl font-bold mt-1 text-slate-900 dark:text-slate-100">ADSE 2.0
+                            (Advanced Diploma in Software Engineering)</h3>
+                        <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">Aptech Learning</p>
+                        <div
+                            class="inline-flex items-center gap-1.5 mt-2 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                            2020 - 2023
+                        </div>
+                        <p class="mt-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Completed intensive practical software development coursework covering web programming
+                            (HTML, CSS, JS, React), backend services, database structures, and object-oriented
+                            programming designs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: Intermediate & Matric -->
+                <div class="relative group">
+                    <div
+                        class="absolute -left-[35px] sm:-left-[43px] top-1.5 w-7 h-7 sm:w-8 sm:h-8 bg-slate-800 dark:bg-slate-700 border-4 border-lightBg dark:border-darkBg rounded-full flex items-center justify-center text-white shadow group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="landmark" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                    </div>
+                    <div
+                        class="p-6 rounded-2xl glass-card relative overflow-hidden group-hover:shadow-md transition-all">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Schooling</span>
+                        <h3 class="font-heading text-xl font-bold mt-1 text-slate-900 dark:text-slate-100">Intermediate
+                            & Matric</h3>
+                        <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">Computer Science</p>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Acquired strong foundation in Mathematics, Physics, Chemistry, and Computer Science.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4: Hifz e Quran -->
+                <div class="relative group">
+                    <div
+                        class="absolute -left-[35px] sm:-left-[43px] top-1.5 w-7 h-7 sm:w-8 sm:h-8 bg-emerald-700 dark:bg-emerald-600 border-4 border-lightBg dark:border-darkBg rounded-full flex items-center justify-center text-white shadow group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="award" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                    </div>
+                    <div
+                        class="p-6 rounded-2xl glass-card relative overflow-hidden group-hover:shadow-md transition-all">
+                        <span
+                            class="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Spiritual
+                            & Mental Discipline Milestone</span>
+                        <h3 class="font-heading text-xl font-bold mt-1 text-slate-900 dark:text-slate-100">Hifz e Quran
+                        </h3>
+                        <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">Islamic Academic Studies</p>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Successfully memorized the Holy Quran. Developed high mental focus, cognitive discipline,
+                            retention skills, and personal dedication.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 sm:py-32 scroll-reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight">Contact Me</h2>
+                <div class="h-1.5 w-16 bg-brand-600 dark:bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 text-lg">Have a project or opportunity you want to
+                    discuss? Let's connect!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                <!-- Contact Info (Left) -->
+                <div class="lg:col-span-5 space-y-8">
+                    <h3 class="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100">Let's build something
+                        awesome together</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        I'm currently looking for full-time Software Engineer positions or web development internships
+                        in Karachi or remotely. I am open to discussing client freelance work or collaborative
+                        open-source assignments.
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Email -->
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-brand-900 dark:text-brand-400 flex items-center justify-center group-hover:bg-brand-900 dark:group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Email Address
+                                </h4>
+                                <a href="mailto:haseeburr77@gmail.com"
+                                    class="text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">haseeburr77@gmail.com</a>
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-brand-900 dark:text-brand-400 flex items-center justify-center group-hover:bg-brand-900 dark:group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Phone Call /
+                                    WhatsApp</h4>
+                                <a href="tel:+923001234567"
+                                    class="text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">+923161611324</a>
+                            </div>
+                        </div>
+                        <!-- Location -->
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-brand-900 dark:text-brand-400 flex items-center justify-center group-hover:bg-brand-900 dark:group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Mailing
+                                    Location</h4>
+                                <span
+                                    class="text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200">Korangi
+                                    Creek, Karachi, Pakistan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="h-px bg-slate-200 dark:bg-slate-800 my-6"></div>
+
+                    <!-- Social list -->
+                    <div class="flex gap-4">
+                        <!-- GitHub -->
+                        <a href="https://github.com/haseeb-125" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub Profile" class="group relative p-2.5 rounded-xl
+          bg-slate-100 dark:bg-slate-800
+          text-slate-600 dark:text-slate-300
+          hover:bg-[#24292e] dark:hover:bg-[#24292e]
+          hover:text-white dark:hover:text-white
+          hover:shadow-xl hover:shadow-[#24292e]/40
+          hover:scale-110 active:scale-95
+          transition-all duration-300 overflow-visible">
+
+                            <!-- Glow ring on hover -->
+                            <span class="absolute inset-0 rounded-xl ring-0 ring-[#24292e]/0
+               group-hover:ring-2 group-hover:ring-[#24292e]/30
+               transition-all duration-300 pointer-events-none"></span>
+
+                            <!-- GitHub SVG icon (official shape) -->
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                            </svg>
+
+                            <!-- Tooltip -->
+                            <span class="absolute -bottom-10 left-1/2 -translate-x-1/2
+               bg-[#24292e] text-white text-xs font-semibold
+               px-3 py-1.5 rounded-lg whitespace-nowrap
+               opacity-0 group-hover:opacity-100
+               translate-y-2 group-hover:translate-y-0
+               transition-all duration-200 pointer-events-none
+               shadow-xl z-50">
+                                GitHub
+                                <span class="absolute -top-1 left-1/2 -translate-x-1/2
+                 w-2 h-2 bg-[#24292e] rotate-45"></span>
+                            </span>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/haseeb-ur-rehman-08369922a/" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn Profile" class="group relative p-2.5 rounded-xl
+          bg-slate-100 dark:bg-slate-800
+          text-slate-600 dark:text-slate-300
+          hover:bg-[#0A66C2] dark:hover:bg-[#0A66C2]
+          hover:text-white dark:hover:text-white
+          hover:shadow-xl hover:shadow-[#0A66C2]/40
+          hover:scale-110 active:scale-95
+          transition-all duration-300 overflow-visible">
+
+                            <!-- Glow ring on hover -->
+                            <span class="absolute inset-0 rounded-xl ring-0 ring-[#0A66C2]/0
+               group-hover:ring-2 group-hover:ring-[#0A66C2]/30
+               transition-all duration-300 pointer-events-none"></span>
+
+                            <!-- LinkedIn SVG icon (official shape) -->
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+
+                            <!-- Tooltip -->
+                            <span class="absolute -bottom-10 left-1/2 -translate-x-1/2
+               bg-[#0A66C2] text-white text-xs font-semibold
+               px-3 py-1.5 rounded-lg whitespace-nowrap
+               opacity-0 group-hover:opacity-100
+               translate-y-2 group-hover:translate-y-0
+               transition-all duration-200 pointer-events-none
+               shadow-xl z-50">
+                                LinkedIn
+                                <span class="absolute -top-1 left-1/2 -translate-x-1/2
+                 w-2 h-2 bg-[#0A66C2] rotate-45"></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Right) -->
+                <div
+                    class="lg:col-span-7 p-6 sm:p-8 rounded-2xl glass-card shadow-sm border border-slate-200/50 dark:border-slate-800/50 relative overflow-hidden">
+                    <form id="contactForm" class="space-y-6" novalidate>
+                        <!-- Name Field -->
+                        <div>
+                            <label for="name"
+                                class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Full
+                                Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                                placeholder="John Doe">
+                            <span id="nameError" class="text-xs text-red-500 hidden mt-1">Please enter your full
+                                name.</span>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div>
+                            <label for="email"
+                                class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Email
+                                Address</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                                placeholder="johndoe@example.com">
+                            <span id="emailError" class="text-xs text-red-500 hidden mt-1">Please enter a valid email
+                                address.</span>
+                        </div>
+
+                        <!-- Subject Field -->
+                        <div>
+                            <label for="subject"
+                                class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Subject</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                                placeholder="Collaboration / Job Inquiry">
+                            <span id="subjectError" class="text-xs text-red-500 hidden mt-1">Please enter a
+                                subject.</span>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div>
+                            <label for="message"
+                                class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Your
+                                Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                                placeholder="Hi Haseeb, I would like to discuss..."></textarea>
+                            <span id="messageError" class="text-xs text-red-500 hidden mt-1">Please type a
+                                message.</span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                            class="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl hover:shadow-brand-500/20 hover:-translate-y-0.5 active:translate-y-0 transform transition-all duration-200 focus:outline-none">
+                            <span>Send Message</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+
+                    <!-- Success Alert Modal Overlay -->
+                    <div id="successModal"
+                        class="absolute inset-0 bg-white/95 dark:bg-slate-950/95 flex flex-col justify-center items-center p-6 text-center opacity-0 pointer-events-none transition-opacity duration-300">
+                        <div
+                            class="w-16 h-16 bg-green-100 dark:bg-green-950/50 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="check" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="font-heading text-2xl font-bold text-slate-900 dark:text-white">Message Sent
+                            Successfully!</h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm max-w-sm mt-2">Thank you for reaching out,
+                            Haseeb will get back to you as soon as possible.</p>
+                        <button id="closeModalBtn"
+                            class="mt-6 px-6 py-2 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all text-xs">
+                            Send Another Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white dark:bg-darkBg border-t border-slate-200/50 dark:border-slate-800/80 py-8">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+            <div>
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    &copy; <span id="year">2026</span> Haseeb Ur Rehman. All Rights Reserved.
+                </p>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#home"
+                    class="text-xs text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a>
+                <a href="#about"
+                    class="text-xs text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
+                <a href="#skills"
+                    class="text-xs text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Skills</a>
+                <a href="#projects"
+                    class="text-xs text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Projects</a>
+                <a href="#contact"
+                    class="text-xs text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTop" aria-label="Back to Top"
+        class="fixed bottom-6 right-6 p-3 rounded-full bg-brand-900/90 dark:bg-brand-600/95 text-white hover:bg-brand-800 dark:hover:bg-brand-700 shadow-xl opacity-0 pointer-events-none hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 z-40">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- VANILLA JAVASCRIPT CORE INTERACTIVITY -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // DOM elements
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        const navbar = document.getElementById('navbar');
+        const typingSub = document.getElementById('typing-sub');
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const backToTopBtn = document.getElementById('backToTop');
+        const yearSpan = document.getElementById('year');
+
+        // Dynamic Footer Year
+        yearSpan.textContent = new Date().getFullYear();
+
+        const avatarImg = document.getElementById('avatarImg');
+        const darkAvatar = 'assets/avatar-dark.png';
+        const lightAvatar = 'assets/avatar-light.png';
+
+        function updateAvatar() {
+            const isDark = document.documentElement.classList.contains('dark');
+            avatarImg.src = isDark ? darkAvatar : lightAvatar;
+        }
+
+
+        // 1. LIGHT / DARK MODE TOGGLE
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            updateAvatar();  // ← add this line
+        }
+
+        function toggleTheme() {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateAvatar();  // ← add this line
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+        initTheme();
+
+        // 2. MOBILE MENU TOGGLE
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu on clicking any link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+
+        // 3. TYPING EFFECT
+        const roles = [
+            "Full-Stack Software Developer",
+            "MERN Stack Specialist",
+            "Python & Flask Enthusiast",
+            "BS Software Engineering Student"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                typingSub.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typingSub.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                // Pause at complete word
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typingSpeed = 300; // brief delay before typing next word
+            }
+
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        // Start Typing Animation after brief delay
+        setTimeout(typeEffect, 1000);
+
+        // 4. SCROLL REVEAL (INTERSECTION OBSERVER)
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+
+                    // If this is the skills section, animate the skill bars
+                    if (entry.target.id === 'skills') {
+                        skillBars.forEach(bar => {
+                            const targetVal = bar.getAttribute('data-target');
+                            bar.style.transition = 'width 1.5s cubic-bezier(0.1, 1, 0.1, 1)';
+                            bar.style.width = targetVal;
+                        });
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            root: null,
+            threshold: 0.15,
+            rootMargin: '0px'
+        });
+
+        scrollRevealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 5. NAVBAR STICKY & SCROLL HEIGHT + BACK TO TOP
+        window.addEventListener('scroll', () => {
+            // Navbar shrink/glow
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-4', 'shadow-md');
+                navbar.classList.remove('h-20');
+            } else {
+                navbar.classList.remove('py-4', 'shadow-md');
+                navbar.classList.add('h-20');
+            }
+
+            // Back to top appearance
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100', 'pointer-events-all');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100', 'pointer-events-all');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 6. DYNAMIC ACTIVE NAV LINK VISUALS ON SCROLL
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120; // adjustment for sticky header
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-brand-600', 'dark:text-brand-400', 'after:w-full');
+                link.classList.add('text-slate-600', 'dark:text-slate-300');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('text-brand-600', 'dark:text-brand-400', 'after:w-full');
+                    link.classList.remove('text-slate-600', 'dark:text-slate-300');
+                }
+            });
+        });
+
+        // 7. FORM VALIDATION & MODAL SUCCESS
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const subject = document.getElementById('subject');
+            const message = document.getElementById('message');
+
+            let isValid = true;
+
+            // Reset errors
+            document.querySelectorAll('[id$="Error"]').forEach(err => err.classList.add('hidden'));
+
+            // Name Check
+            if (!name.value.trim()) {
+                document.getElementById('nameError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Email Check
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value.trim())) {
+                document.getElementById('emailError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Subject Check
+            if (!subject.value.trim()) {
+                document.getElementById('subjectError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Message Check
+            if (!message.value.trim()) {
+                document.getElementById('messageError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Perform console log or submit handler
+                console.log("Contact Form Submission Received:", {
+                    name: name.value.trim(),
+                    email: email.value.trim(),
+                    subject: subject.value.trim(),
+                    message: message.value.trim()
+                });
+
+                // Display success overlay
+                successModal.classList.remove('opacity-0', 'pointer-events-none');
+                successModal.classList.add('opacity-100', 'pointer-events-all');
+            }
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            contactForm.reset();
+            successModal.classList.add('opacity-0', 'pointer-events-none');
+            successModal.classList.remove('opacity-100', 'pointer-events-all');
+        });
+    </script>
+</body>
+
+</html>
